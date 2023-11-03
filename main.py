@@ -2,6 +2,7 @@ import pandas as pd
 import os
 from typing import List, Tuple
 import matplotlib.pyplot as plt
+
 """
 Cluster - Big Data and Machine Learning
 Semester 2 2023
@@ -232,7 +233,8 @@ def create_column_chart(_baby_names_df: pd.DataFrame, _year: int) -> None:
 
     # Create the column chart
     plt.bar(list(range(10)), numbers, color=colors)
-    plt.xticks(list(range(10)), labels=[f'#{i // 2 + 1} Girl' if i % 2 == 0 else f'#{i // 2 + 1} Boy' for i in range(10)], rotation=45)
+    plt.xticks(list(range(10)),
+               labels=[f'#{i // 2 + 1} Girl' if i % 2 == 0 else f'#{i // 2 + 1} Boy' for i in range(10)], rotation=45)
 
     # Add labels at the top of each column
     for i, (name, number) in enumerate(zip(names, numbers)):
@@ -252,6 +254,7 @@ def create_column_chart(_baby_names_df: pd.DataFrame, _year: int) -> None:
     # Show the plot
     plt.show()
 
+
 # Main script or main function
 if __name__ == "__main__":
     folder_path = 'names_data'
@@ -268,5 +271,3 @@ if __name__ == "__main__":
         "Enter a year to see top 5 boys and girls names (1880-2022): ", 1880, 2022)
 
     create_column_chart(baby_names_df, sample_year)
-
-
